@@ -1,61 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toxxic Tech</title>
-    <style>
-        body {
-            background-image: url('https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg'); /* Replace with your background image URL */
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #128C7E; /* Darker green on hover */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Toxxic Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: black;
+    }
+
+    .btn {
+      --color: #e5f5f1;
+      --color2: rgb(0, 0, 0);
+      width: 200px;
+      padding: 0.8em 1.75em;
+      background-color: green;
+      border-radius: 6px;
+      border: .3px solid var(--color);
+      transition: .5s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 1;
+      font-weight: 300;
+      font-size: 17px;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      text-transform: uppercase;
+      color: var(--color);
+      margin-bottom: 24px;
+    }
+
+    .btn::after, .btn::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform: skew(90deg) translate(-50%, -50%);
+      position: absolute;
+      inset: 50%;
+      left: 25%;
+      z-index: -1;
+      transition: .5s ease-out;
+      background-color: var(--color);
+    }
+
+    .btn::before {
+      top: -50%;
+      left: -25%;
+      transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::before {
+      transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::after {
+      transform: skew(45deg) translate(-50%, -50%);
+    }
+
+    .btn:hover {
+      color: var(--color2);
+    }
+
+    .btn:active {
+      filter: brightness(.7);
+      transform: scale(.98);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>GIVEAWAY FORM BY TOXXIC</h1>
-        <input type="text" id="message" placeholder="Example: Toxxic 2348165846414" />
-        <button onclick="sendMessage()">Send</button>
-    </div>
 
-    <script>
-        function sendMessage() {
-            const message = document.getElementById('message').value;
-            const phoneNumber = '2348165846414'; // Replace with the recipient's phone number
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
+  <button onclick="window.open(`/qrr`)" class="btn">QR Code</button>
+  <button onclick="window.open(`/pair`)" class="btn">Pair Code</button>
+  <button onclick="window.open(`https://github.com/Toxic1239/RIASGREMORYBOT`)" class="btn">Bot Repo</button>
+  <button onclick="window.open(`https://wa.me/33757054414`)" class="btn">Contact Me</button>
+  
+
 </body>
 </html>
